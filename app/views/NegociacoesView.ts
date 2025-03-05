@@ -7,7 +7,7 @@ export class NegociacoesViews {
   }
   template(model: Negociacoes): string {
     return `
-         <table class='table table-hover table-bordered'>
+         <table class="table table-hover table-bordered">
             <thead>
                 <tr>
                     <th>DATA</th>
