@@ -1,3 +1,4 @@
+import { DiasDaSemana } from '../enums/DiasDaSemana.js';
 import { Negociacao } from '../models/Negociacao.js';
 import { Negociacoes } from '../models/Negociacoes.js';
 import { MensagemView } from '../views/MensagemView.js';
@@ -7,8 +8,6 @@ export class NegociacaoController {
         this.negociacoes = new Negociacoes();
         this.negociacoesView = new NegociacoesViews('#negociacoesView');
         this.mensagemView = new MensagemView('#mensagemView');
-        this.SABADO = 6;
-        this.DOMINGO = 0;
         this.inputData = document.querySelector('#data');
         this.inputQuantidade = document.querySelector('#quantidade');
         this.inputValor = document.querySelector('#valor');
@@ -25,7 +24,7 @@ export class NegociacaoController {
         this.atualizaView();
     }
     ehDiaDeSemana(data) {
-        return data.getDay() > this.DOMINGO && data.getDate() < this.SABADO;
+        return data.getDay() > DiasDaSemana.DOMINGO && data.getDate() < DiasDaSemana.SABADO;
     }
     criaNegociacao() {
         const regExp = /-/g;
