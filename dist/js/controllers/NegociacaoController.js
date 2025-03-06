@@ -7,6 +7,8 @@ export class NegociacaoController {
         this.negociacoes = new Negociacoes();
         this.negociacoesView = new NegociacoesViews('#negociacoesView');
         this.mensagemView = new MensagemView('#mensagemView');
+        this.SABADO = 6;
+        this.DOMINGO = 0;
         this.inputData = document.querySelector('#data');
         this.inputQuantidade = document.querySelector('#quantidade');
         this.inputValor = document.querySelector('#valor');
@@ -14,9 +16,16 @@ export class NegociacaoController {
     }
     adiciona() {
         const negociacao = this.criaNegociacao();
+        if (!this.ehDiaDeSemana(negociacao.data)) {
+            this.mensagemView.update('Apenas negociações em dias de semana são aceitas.');
+            return;
+        }
         this.negociacoes.adiciona(negociacao);
         this.limpaFormulario();
         this.atualizaView();
+    }
+    ehDiaDeSemana(data) {
+        return data.getDay() > this.DOMINGO && data.getDate() < this.SABADO;
     }
     criaNegociacao() {
         const regExp = /-/g;
