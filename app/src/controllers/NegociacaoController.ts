@@ -1,3 +1,4 @@
+import { inspect } from '../decorators/Inspect.js';
 import { logarRuntime } from '../decorators/LogarRuntime.js';
 import { DiasDaSemana } from '../enums/DiasDaSemana.js';
 import { Negociacao } from '../models/Negociacao.js';
@@ -22,6 +23,7 @@ export class NegociacaoController {
     this.negociacoesView.update(this.negociacoes);
   }
 
+  @inspect
   @logarRuntime()
   public adiciona(): void {
     const negociacao = Negociacao.criaDe(
