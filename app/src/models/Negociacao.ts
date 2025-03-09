@@ -1,7 +1,6 @@
-import { Comparavel } from '../interfaces/Comparavel.js';
-import { Imprimivel } from '../utils/Imprimivel.js';
+import { Modelo } from '../interfaces/Modelo.js';
 
-export class Negociacao implements Imprimivel, Comparavel<Negociacao> {
+export class Negociacao implements Modelo<Negociacao> {
   constructor(
     private _data: Date,
     public readonly quantidade: number,
