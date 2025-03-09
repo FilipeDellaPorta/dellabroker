@@ -17,3 +17,4 @@ export function logarRuntime(emSegundos = false) {
         return descriptor;
     };
 }
+//# sourceMappingURL=LogarRuntime.js.map

@@ -78,3 +78,4 @@ __decorate([
     inspect,
     logarRuntime()
 ], NegociacaoController.prototype, "adiciona", null);
+//# sourceMappingURL=NegociacaoController.js.map
