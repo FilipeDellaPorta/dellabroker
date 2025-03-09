@@ -5,6 +5,7 @@ import { DiasDaSemana } from '../enums/DiasDaSemana.js';
 import { Negociacao } from '../models/Negociacao.js';
 import { Negociacoes } from '../models/Negociacoes.js';
 import { NegociacoesService } from '../services/NegociacoesService.js';
+import { imprimir } from '../utils/Imprimir.js';
 import { MensagemView } from '../views/MensagemView.js';
 import { NegociacoesViews } from '../views/NegociacoesView.js';
 
@@ -39,8 +40,7 @@ export class NegociacaoController {
       return;
     }
     this.negociacoes.adiciona(negociacao);
-    console.log(negociacao.paraTexto());
-    console.log(this.negociacoes.paraTexto());
+    imprimir(negociacao, this.negociacoes);
     this.limpaFormulario();
     this.atualizaView();
   }
